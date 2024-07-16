@@ -7,6 +7,7 @@ import Projects from "../components/Projects";
 import JazzPiano from "../components/JazzPiano";
 import Experience from "../components/Experience";
 import Footer from "../components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
   const [youtubeEvent, setYoutubeEvent] = useState<any>(null);

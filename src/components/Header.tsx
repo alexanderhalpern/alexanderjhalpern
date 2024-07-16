@@ -134,9 +134,9 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
               sequence={[
                 "Software Engineer",
                 2000,
-                "Jazz Pianist",
-                2000,
                 "Innovator",
+                2000,
+                "Jazz Pianist",
                 2000,
               ]}
               wrapper="span"
@@ -177,11 +177,14 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
             </button>
           </div>
         </div>
-        <div className="flex justify-start md:w-1/2 my-auto m-6">
+        <div
+          className="flex justify-start md:w-1/2 my-auto m-6"
+          style={{ zIndex: 1 }}
+        >
           <img
             src="/images/profile.jpg"
             alt="Alexander Halpern"
-            className="rounded-full w-96 h-96 object-cover shadow-2xl duration-500 animate-fadeInRotate"
+            className="rounded-full md:w-96 md:h-96 md:mb-0 w-72 h-72 mb-16 object-cover shadow-2xl duration-500 animate-fadeInRotate"
           />
         </div>
       </div>

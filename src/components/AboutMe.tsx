@@ -1,7 +1,7 @@
 import React from "react";
 
 const AboutMe = () => (
-  <section className="py-20 px-4 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+  <section className="py-20 px-4 bg-white text-black">
     <div className="container mx-auto">
       <h2 className="text-4xl font-bold mb-8 text-center">About Me</h2>
       <p className="text-xl max-w-3xl mx-auto leading-relaxed">
