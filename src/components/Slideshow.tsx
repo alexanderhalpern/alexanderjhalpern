@@ -23,7 +23,7 @@ const Slideshow = ({
       {images.map((image, index) => (
         <Carousel.Item key={index}>
           <img
-            src={`/images/${name}-slideshow/${image}`}
+            src={`/images/${name.toLowerCase().trim()}-slideshow/${image}`}
             alt={`${name} slide ${index + 1}`}
             className="d-block w-100"
           />
