@@ -2,7 +2,11 @@
 import React, { useRef, useEffect } from "react";
 import YouTube from "react-youtube";
 
-const JazzPiano = ({ setYoutubeEvent }) => {
+const JazzPiano = ({
+  setYoutubeEvent,
+}: {
+  setYoutubeEvent: React.Dispatch<any>;
+}) => {
   return (
     <section className="py-20 px-4 text-white">
       <div className="flex flex-col justify-center items-center mx-auto">
