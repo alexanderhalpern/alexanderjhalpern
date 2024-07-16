@@ -179,6 +179,10 @@ const Header = ({
               repeat={Infinity}
             />
           </div>
+          <p className="text-gray-300">
+            For the most authentic experience, <br />
+            allow me to play you some jazz as you peruse!{" "}
+          </p>
           <div className="flex flex-wrap justify-end space-x-4 items-center">
             <a
               target="_blank"
@@ -209,7 +213,7 @@ const Header = ({
               >
                 {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                 <span className="animate-fadeIn duration-2000">
-                  Hear me play some Jazz!
+                  Hear me play some Jazz
                 </span>
               </button>
               {showBurst && (
