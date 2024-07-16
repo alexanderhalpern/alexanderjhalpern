@@ -84,7 +84,13 @@ const BurstEmoji = ({ emoji, angle }: { emoji: string; angle: number }) => {
   );
 };
 
-const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
+const Header = ({
+  youtubeEvent,
+  onScrollClick,
+}: {
+  youtubeEvent: any;
+  onScrollClick: () => void;
+}) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showBurst, setShowBurst] = useState(false);
@@ -232,7 +238,7 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
         </div>
       </div>
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-        <div className="animate-bounce">
+        <div className="animate-bounce cursor-pointer" onClick={onScrollClick}>
           <ChevronDown size={48} className="text-white" />
         </div>
       </div>

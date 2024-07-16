@@ -1,4 +1,3 @@
-// pages/index.js
 "use client";
 import React, { useRef, useState } from "react";
 import Header from "../components/Header";
@@ -11,10 +10,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
   const [youtubeEvent, setYoutubeEvent] = useState<any>(null);
+  const aboutMeRef = useRef<HTMLDivElement>(null);
+
+  const scrollToNextSection = () => {
+    aboutMeRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen font-sans">
-      <Header youtubeEvent={youtubeEvent} />
-      <AboutMe />
+      <Header youtubeEvent={youtubeEvent} onScrollClick={scrollToNextSection} />
+      <div ref={aboutMeRef}>
+        <AboutMe />
+      </div>
       <Projects />
       <Experience />
       <JazzPiano setYoutubeEvent={setYoutubeEvent} />
@@ -22,4 +29,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;
