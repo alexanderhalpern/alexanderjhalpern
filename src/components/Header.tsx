@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Github, Linkedin, Mail, ChevronDown, Play, Pause } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
@@ -62,10 +62,34 @@ const FlyingMusicNote = ({
   );
 };
 
+const BurstEmoji = ({ emoji, angle }: { emoji: string; angle: number }) => {
+  const distance = 100 + Math.random() * 100; // Random distance between 100 and 200 pixels
+  const x = distance * Math.cos(angle);
+  const y = distance * Math.sin(angle);
+
+  return (
+    <div
+      className="absolute text-2xl"
+      style={{
+        animation: `burstOut 0.5s forwards, fadeOut 5s forwards`,
+        transformOrigin: "center",
+        // @ts-ignore
+        "--x": `${x}px`,
+        // @ts-ignore
+        "--y": `${y}px`,
+      }}
+    >
+      {emoji}
+    </div>
+  );
+};
+
 const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showBurst, setShowBurst] = useState(false);
   const emojiPositionsRef = useRef<{ top: string; left: string }[]>([]);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     // Generate positions for emojis and store them in the ref
@@ -85,10 +109,15 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
         playerRef.pauseVideo();
       } else {
         playerRef.playVideo();
+        setShowBurst(true);
+        setTimeout(() => setShowBurst(false), 5000); // Hide burst after 1 second
       }
       setIsPlaying(!isPlaying);
     }
   };
+
+  const burstEmojis = ["🎵", "🎶", "♪", "♫", "♬", "🎼", "🎹", "🎷", "🎺", "🎸"];
+  const repeatedEmojis = Array.from({ length: 5 }, () => burstEmojis).flat();
 
   return (
     <header className="relative flex flex-col bg-gradient-to-br from-slate-800 to-blue-400 h-screen overflow-hidden">
@@ -166,15 +195,29 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
             >
               <Mail size={24} />
             </a>
-            <button
-              onClick={togglePlay}
-              className={`my-4 animate-pulse duration-500 bg-white text-blue-600 px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-gray-200`}
-            >
-              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-              <span className="animate-fadeIn duration-2000">
-                Here me play some Jazz!
-              </span>
-            </button>
+            <div className="relative">
+              <button
+                ref={buttonRef}
+                onClick={togglePlay}
+                className={`my-4 animate-pulse duration-500 bg-white text-blue-600 px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-gray-200`}
+              >
+                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                <span className="animate-fadeIn duration-2000">
+                  Hear me play some Jazz!
+                </span>
+              </button>
+              {showBurst && (
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  {repeatedEmojis.map((emoji, index) => (
+                    <BurstEmoji
+                      key={index}
+                      emoji={emoji}
+                      angle={(index / repeatedEmojis.length) * 2 * Math.PI}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div
@@ -274,6 +317,23 @@ const Header = ({ youtubeEvent }: { youtubeEvent: any }) => {
           }
           50% {
             opacity: 0.4;
+          }
+        }
+        @keyframes burstOut {
+          from {
+            transform: translate(-50%, -50%);
+          }
+          to {
+            transform: translate(calc(var(--x) - 50%), calc(var(--y) - 50%));
+          }
+        }
+
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
           }
         }
       `}</style>

@@ -54,10 +54,10 @@ const projects = [
       "second-screenshot.png",
     ], // Add actual image names
     features: [
-      "Advanced patent search using AI",
-      "Custom vector embedding model",
-      "Project management tools",
-      "Patent classification system",
+      "A line of communication during time-critical situations",
+      "Real-time incident reporting",
+      "Precise location tracking",
+      "Instantaneous alerting",
     ],
     borderColor: "white",
   },
@@ -78,15 +78,13 @@ const projects = [
     textColor: "white",
     slideshow: ["device.png", "screen.png"], // Add actual image names
     features: [
-      "Advanced patent search using AI",
-      "Custom vector embedding model",
-      "Project management tools",
-      "Patent classification system",
+      "Patiently and politely instructs the user",
+      "Auto-aligns light projection with any piano keyboard",
+      "Powered by machine-learning assisted mistake detection",
     ],
     borderColor: "#FF96D5",
   },
 ];
-
 const ProjectSection = ({
   project,
   index,
@@ -100,39 +98,79 @@ const ProjectSection = ({
   >
     <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="md:w-1/2 mb-8 md:mb-0">
-          <img
-            src={project.thumbnail}
-            alt={project.name}
-            className="w-64 mb-6"
-          />
-          <div className={`mb-6 ${project.textColor}`}>
-            {project.description.map((item: string, index: number) => (
-              <React.Fragment key={index}>{item}</React.Fragment>
-            ))}
-          </div>
-          <ul className={`list-disc list-inside mb-6 ${project.textColor}`}>
-            {project.features.map((feature: string, index: number) => (
-              <li key={index}>{feature}</li>
-            ))}
-          </ul>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex no-underline items-center text-${project.textColor} font-semibold hover:underline`}
-          >
-            Explore Project <ExternalLink size={20} className="ml-2" />
-          </a>
-        </div>
-        <div className="md:w-1/2 md:mx-8 w-full">
-          <Slideshow
-            className="rounded-lg shadow-xl"
-            images={project.slideshow}
-            name={project.name}
-            borderColor={project.borderColor}
-          />
-        </div>
+        {index % 2 === 0 ? (
+          <>
+            <div className="md:w-1/2 mb-8 md:mb-0">
+              <img
+                src={project.thumbnail}
+                alt={project.name}
+                className="w-64 mb-6"
+              />
+              <div className={`mb-6 ${project.textColor}`}>
+                {project.description.map((item: string, index: number) => (
+                  <React.Fragment key={index}>{item}</React.Fragment>
+                ))}
+              </div>
+              <ul className={`list-disc list-inside mb-6 ${project.textColor}`}>
+                {project.features.map((feature: string, index: number) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex no-underline items-center text-${project.textColor} font-semibold hover:underline`}
+              >
+                Explore Project <ExternalLink size={20} className="ml-2" />
+              </a>
+            </div>
+            <div className="md:w-1/2 md:mx-8 w-full">
+              <Slideshow
+                className="rounded-lg shadow-xl"
+                images={project.slideshow}
+                name={project.name}
+                borderColor={project.borderColor}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="md:w-1/2 md:mx-12 w-full">
+              <Slideshow
+                className="rounded-lg shadow-xl"
+                images={project.slideshow}
+                name={project.name}
+                borderColor={project.borderColor}
+              />
+            </div>
+            <div className="md:w-1/2 mb-8 md:mb-0">
+              <img
+                src={project.thumbnail}
+                alt={project.name}
+                className="w-64 my-6"
+              />
+              <div className={`mb-6 ${project.textColor}`}>
+                {project.description.map((item: string, index: number) => (
+                  <React.Fragment key={index}>{item}</React.Fragment>
+                ))}
+              </div>
+              <ul className={`list-disc list-inside mb-6 ${project.textColor}`}>
+                {project.features.map((feature: string, index: number) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex no-underline items-center text-${project.textColor} font-semibold hover:underline`}
+              >
+                Explore Project <ExternalLink size={20} className="ml-2" />
+              </a>
+            </div>
+          </>
+        )}
       </div>
     </div>
   </div>
@@ -151,4 +189,5 @@ const Projects = () => (
     ))}
   </section>
 );
+
 export default Projects;

@@ -7,7 +7,7 @@ const experiences = [
     company: "Versatile Credit",
     period: "June 2024 - Present",
     description:
-      "Utilizing Python and PostgreSQL for machine learning models in payment pipeline anomaly detection.",
+      "Utilizing Python to interact with a PostgreSQL database containing 180 tables to train over 1000 vendor-specific machine learning models, storing them in Redis for real-time anomaly detection in a payment pipeline handling over $1 billion annually.",
     logo: "/images/logos/versatile-credit.png",
   },
   {
@@ -15,7 +15,7 @@ const experiences = [
     company: "IBM",
     period: "June 2024 - Present",
     description:
-      "Selected as one of the top 5% participants for the Software Development Track.",
+      "Selected as one of the top 5% of participants out of over 10,000 applicants for the Software Development Track, where I will learn about Generative AI, React, and cloud development.",
     logo: "/images/logos/ibm.png",
   },
   {
