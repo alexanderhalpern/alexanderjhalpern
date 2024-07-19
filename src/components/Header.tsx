@@ -179,10 +179,7 @@ const Header = ({
               repeat={Infinity}
             />
           </div>
-          <p className="text-gray-300">
-            For the most authentic experience, <br />
-            allow me to play you some jazz as you peruse!{" "}
-          </p>
+         
           <div className="flex flex-wrap justify-end space-x-4 items-center">
             <a
               target="_blank"
