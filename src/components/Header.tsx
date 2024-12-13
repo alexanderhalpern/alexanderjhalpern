@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Github, Linkedin, Mail, ChevronDown, Play, Pause } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown, Play, Pause, FileUser } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
 const getWeightedRandomPosition = () => {
@@ -201,6 +201,13 @@ const Header = ({
               className="text-white hover:text-gray-300 text-xl transition-transform hover:scale-110"
             >
               <Mail size={24} />
+            </a>
+            <a
+              target="_blank"
+              href="/pdfs/Alexander_Halpern_resume.pdf"
+              className="text-white hover:text-gray-300 text-xl transition-transform hover:scale-110"
+            >
+              <FileUser size={24} />
             </a>
             <div className="relative">
               <button
