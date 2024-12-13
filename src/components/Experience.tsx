@@ -7,7 +7,7 @@ const experiences = [
     company: "Versatile Credit",
     period: "June 2024 - Present",
     description:
-      "Utilizing Python to interact with a PostgreSQL database containing 180 tables to train over 1000 vendor-specific machine learning models, storing them in Redis for real-time anomaly detection in a payment pipeline handling over $1 billion annually.",
+      "Conceptualized and engineered DataPal, an AI tool using Python, LangChain, and RAG to automate insights from a 200-table SQL database. Deployed 4 AI agents to extract, visualize data, reducing generation time by 99.7% (2 hours to 20 seconds).",
     logo: "/images/logos/versatile-credit.png",
   },
   {
@@ -23,7 +23,7 @@ const experiences = [
     company: "Google Developer Student Clubs at UVA",
     period: "August 2023 - Present",
     description:
-      "Restarted the club, recruited over 250 members, and organize events for 100+ attendees.",
+      "Restarted the club, recruited over 600 members, and organize events for 100+ attendees.",
     logo: "/images/logos/gdsc-brackets.png",
   },
 ];
